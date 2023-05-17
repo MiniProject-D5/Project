@@ -1,4 +1,4 @@
-package Omok.src.Client;
+package Client;
 
 import javax.swing.*;
 import java.awt.*;
