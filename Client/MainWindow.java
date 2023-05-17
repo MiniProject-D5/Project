@@ -1,4 +1,4 @@
-package Omok.src.Client;
+package Client;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,11 +9,11 @@ public class MainWindow extends JFrame {
     LoginWindow login;
     SignupWindow signup;
     WaitWindow wait;
-//    GameWindow game;
+    GameWindow game;
 
     MainWindow() {
         setLayout(new FlowLayout());
-        change("game");
+        change("login");
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
@@ -39,12 +39,11 @@ public class MainWindow extends JFrame {
             add(wait);
             pack();
         }
-//        if (name.equals("game")) {
-//            game = new GameWindow(this);
-//            add(game);
-//            pack();
-//        }
+        if (name.equals("game")) {
+            game = new GameWindow(this);
+            setSize(800, 800);
+            setResizable(false);
+            add(game);
+        }
     }
-
-
 }

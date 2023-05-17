@@ -1,4 +1,4 @@
-package Omok.src.Client;
+package Client;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,31 +11,33 @@ public class LoginWindow extends JPanel{
     JLabel id, pw;
     JTextField idField, pwField;
     JButton loginBtn, signUpBtn;
-    static MainWindow window;
-
-    static ActionListener loginBtnListner = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            // 로그인 버튼 눌렸을때
-            System.out.println("login btn Clicked!");
-        }
-    };
-
-    static ActionListener signUpBtnListner = new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            // 회원가입 버튼 눌렷을 때
-            if (window == null) {
-                return;
-            }
-            window.change("signup");
-            System.out.println("signUp Btn Clicked!");
-        }
-    };
+    MainWindow window;
+    ActionListener loginBtnListner;
+    ActionListener signUpBtnListner;
 
     LoginWindow(MainWindow window) {
         this.window = window;
         setLayout(new GridLayout(3,0));
+        loginBtnListner = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // 로그인 버튼 눌렸을때
+                System.out.println("login btn Clicked!");
+            }
+        };
+
+        signUpBtnListner = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // 회원가입 버튼 눌렷을 때
+                if (window == null) {
+                    return;
+                }
+                window.change("signup");
+                System.out.println("signUp Btn Clicked!");
+            }
+        };
+
 
         idArea = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         idArea.add(id = new JLabel("아이디"));
